@@ -1,0 +1,15 @@
+{
+  "name": "vidly",
+  "version": "1.0.0",
+  "description": "A video store api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Taha Ali Irfan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "joi": "^14.3.1"
+  }
+}
