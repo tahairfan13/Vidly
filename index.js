@@ -7,6 +7,7 @@ app.use(express.json()); // To get data in JSON form
 app.use(express.urlencoded({extended: true})); // Use in URL encorded forms
 // Custom Middleware
 app.use(helmet()); // Security purpose use to add extra headers
+console.log(app.get('env'));
 
 const genres = [
     {id: 1, name: "Terminator"},
