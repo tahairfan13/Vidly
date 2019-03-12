@@ -1,5 +1,8 @@
 const helmet = require('helmet');
+const developmentDebugger = require('debug')('vidly:development');
+const dbDebugger = require('debug')('vidly:dbdebugger');
 const config = require('config'); // used to create enviornments(Production, Development)
+const morgan = require('morgan'); // to log details of request
 const Joi = require('joi');
 const express = require('express');
 const app = express();
@@ -10,7 +13,13 @@ app.use(express.urlencoded({extended: true})); // Use in URL encorded forms
 app.use(helmet()); // Security purpose use to add extra headers
 //console.log(app.get('env'));
 
-console.log(config.get('Vidly.dbConfig.host'));
+if (app.get('env') === 'development')
+{
+    app.use(morgan('tiny'));
+    developmentDebugger('logging morgan')
+}
+
+dbDebugger.log(config.get('Vidly.dbConfig.host'));
 
 const genres = [
     {id: 1, name: "Terminator"},
