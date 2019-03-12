@@ -1,4 +1,5 @@
 const helmet = require('helmet');
+const config = require('config'); // used to create enviornments(Production, Development)
 const Joi = require('joi');
 const express = require('express');
 const app = express();
@@ -7,7 +8,9 @@ app.use(express.json()); // To get data in JSON form
 app.use(express.urlencoded({extended: true})); // Use in URL encorded forms
 // Custom Middleware
 app.use(helmet()); // Security purpose use to add extra headers
-console.log(app.get('env'));
+//console.log(app.get('env'));
+
+console.log(config.get('Vidly.dbConfig.host'));
 
 const genres = [
     {id: 1, name: "Terminator"},

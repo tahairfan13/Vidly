@@ -1,0 +1,7 @@
+{
+    "Vidly": {
+      "dbConfig": {
+        "host": "prod-db-server"
+      }
+    }
+}
